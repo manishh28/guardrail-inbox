@@ -45,9 +45,9 @@ AI assistance was used for implementation scaffolding and copy review. The core 
 Challenge source: [NamoID Community Challenges](https://challenges.namoid.in/).
 
 Challenge ID: `agent-approval-inbox`  
-Contributor: Contributor: Manish H28 
-Live demo: Add URL after deployment  
-Final commit: Add full SHA at submission time  
+Contributor:  Manishh28 
+Live demo: https://guardrail-iinbox.vercel.app/
+Final commit: ab30377cbb1b42f20d5d53e6c9791a0d3f8ae4d5
 Time spent: under 6 hours  
 License: MIT
 
