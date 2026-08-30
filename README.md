@@ -1,94 +1,56 @@
-# [Project Title]
+# Guardrail Inbox
 
-**[Powered by NamoID](https://namoid.in)** ·
-[NamoID documentation](https://docs.namoid.in) ·
-[Challenge catalog](https://challenges.namoid.in)
+An independent community solution for NamoID's **The approval inbox for AI agents** challenge.
 
-> Built on the NamoID identity platform for the **NamoID Community Challenges** program.
-
-This repository is a contributor-owned response to the
-`[challenge-id]` problem statement. It was created from the official
-[NamoID challenge template](https://github.com/namoidhq/namoid-challenge-template).
-
-This project is an independent community build. It is not an official
-NamoID product, security recommendation, or endorsement.
-
-## NamoID integration
-
-This project must use **NamoID Hosted Auth as the application's sign-in
-system**. Hosted Auth is the application's authentication system, not a
-social-login button.
-
-Describe the application/client type, issuer/environment configuration,
-callback path, application session, and complete user journey. Do not commit
-credentials, authorization codes, or tokens.
-
-## Community project metadata
-
-- **Challenge ID:** `[challenge-id]`
-- **Contributor:** [Contributor Name]
-- **Live demo:** Add URL
-- **Final commit:** Add the full 40-character SHA at submission time
-- **Time spent:** Add estimate
-- **License:** MIT
-
-## Start here
-
-1. Create your repository using **[Use this template](https://github.com/namoidhq/namoid-challenge-template/generate)**.
-2. In the new repository, run:
-
-```bash
-npm run setup -- --challenge=[challenge-id] --name="Your Name" --title="Your Project" --repo=https://github.com/you/project
-npm run check
-```
-
-Replace `[challenge-id]` with the ID shown in the selected problem statement.
-Setup removes
-the remaining template placeholders and records machine-readable attribution in
-[`namoid-challenge.json`](./namoid-challenge.json).
-
-3. [Create an application in the NamoID Console](https://console.namoid.in/login).
-4. Configure its callback URL and integrate NamoID Hosted Auth into your POC.
-5. Build, test, deploy, and submit the pinned commit.
+Guardrail Inbox is a focused proof of concept for human approval of sensitive AI actions. A simulated agent proposes refunds, address changes, and data exports; an authenticated team member reviews, edits, approves, rejects, or executes them. The UI makes expiry, action integrity, single-use execution, and payload-free audit history visible.
 
 ## Run locally
 
 ```bash
+npm install
 npm run dev
 ```
 
-Open `http://localhost:8080`. Replace the starter page with your application or
-keep its branded footer and metadata when adapting it to another framework.
+For real NamoID Hosted Auth, create a Browser / SPA application in the Test environment, register `http://localhost:5173/auth/callback`, then run with:
+
+```bash
+VITE_NAMOID_CLIENT_ID=namoid_client_test_... npm run dev
+```
+
+Without a client ID, the local demo uses an explicit **Enter demo workspace** button. The production path uses `@namoidhq/js`, Hosted Auth redirect, state/PKCE transaction handling, and UserInfo. No client secret or token is committed or persisted.
 
 ## What works
 
-Describe the required paths you completed.
+- NamoID Hosted Auth integration path for a public SPA.
+- Authenticated reviewer state and explicit demo mode.
+- Three simulated AI action types.
+- Pending, approved, rejected, expired, and executed states.
+- Visible proposal/action integrity model and blocked tamper demo.
+- Single-use execution UI and payload-free audit trail.
+- Responsive UI, keyboard-operable buttons, and mobile layout.
+- Automated tests for tampering and replay.
 
 ## Known limitations
 
-State what remains incomplete. Stopping at the challenge timebox is expected.
+This is a six-hour POC: data is browser-local, the executor is simulated, and the demo mode is not a security boundary. A production milestone would move action storage and execution to a backend, validate server-side NamoID sessions, persist canonical action hashes, enforce role policy, and add durable idempotency keys.
 
 ## AI and external resources
 
-List meaningful AI assistance, adapted code, tutorials, and libraries.
+AI assistance was used for implementation scaffolding and copy review. The core workflow, interaction model, and security edge-case tests are intentionally small and readable for human review. Auth integration follows the [NamoID JavaScript SDK documentation](https://docs.namoid.in/sdks/javascript).
 
-## NamoID attribution
+## Attribution
 
-Keep the factual challenge attribution in this README,
-`namoid-challenge.json`, and the deployed page. You may change the surrounding
-design and implementation. Attribution must not imply that NamoID authored,
-audited, or endorses your solution.
+**Powered by [NamoID](https://namoid.in/)**. This is an independent community build, not an official NamoID product, security recommendation, audit, or endorsement.
 
-## Submit to the catalog
+Challenge source: [NamoID Community Challenges](https://challenges.namoid.in/).
 
-Commit and push the exact version you want reviewed, then copy its full SHA:
+Challenge ID: `agent-approval-inbox`  
+Contributor: Sarthak Vijayvergiya  
+Live demo: Add URL after deployment  
+Final commit: Add full SHA at submission time  
+Time spent: under 6 hours  
+License: MIT
 
-```bash
-git push
-git rev-parse HEAD
-```
+## Submission
 
-Open the [Submit a community build](https://github.com/namoidhq/namoid-challenges/issues/new?template=community-build.yml)
-form and paste the 40-character SHA into **Pinned commit SHA**. This identifies
-one immutable version even if you continue changing the repository later. You
-can request a catalog update or removal later.
+Create a public repository from the [official template](https://github.com/namoidhq/namoid-challenge-template/generate), copy this implementation, deploy it over HTTPS, run `git rev-parse HEAD`, and submit the repository, demo, tests, and pinned 40-character commit SHA through the [community build form](https://github.com/namoidhq/namoid-challenges/issues/new?template=community-build.yml).
