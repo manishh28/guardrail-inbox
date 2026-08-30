@@ -3,7 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "scripts": { "dev": "vite", "build": "vite build", "test": "node --test" },
-  "dependencies": { "@namoidhq/js": "^3.1.0", "vite": "^7.1.3" },
-  "devDependencies": {}
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "node --test",
+    "check": "node scripts/validate.mjs"
+  },
+  "dependencies": {
+    "@namoidhq/js": "^3.1.0",
+    "vite": "^7.1.3"
+  }
 }
