@@ -45,7 +45,7 @@ AI assistance was used for implementation scaffolding and copy review. The core 
 Challenge source: [NamoID Community Challenges](https://challenges.namoid.in/).
 
 Challenge ID: `agent-approval-inbox`  
-Contributor: Sarthak Vijayvergiya  
+Contributor: Contributor: Manish H28 
 Live demo: Add URL after deployment  
 Final commit: Add full SHA at submission time  
 Time spent: under 6 hours  
